@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <script>
+    function deleteItem(index) {
+        fetch("/delete/" + index, {method: "DELETE"})
+        .then(res => res.json())
+        .then(data => {
+          console.log(data); // log the response from the server
+          window.location.reload(); // reoad the page to update the list
+        })
+        .catch(err => {
+          console.log(err); // log any error from the server
+        });
+      }
+      </script>
+</body>
+</html>
